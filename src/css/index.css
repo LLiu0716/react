@@ -1,15 +1,15 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 
 /* 把我们所有标签的内外边距清零 */
@@ -47,9 +47,10 @@ a {
 button,
 input {
 	/* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
-	font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB,'\5B8B\4F53', sans-serif;
+	font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB,
+		'\5B8B\4F53', sans-serif;
 	border: none;
-	outline:none;  
+	outline: none;
 }
 
 body {
@@ -58,13 +59,20 @@ body {
 	background-color: #fff;
 }
 
-.one{
+html,
+body,
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+.one {
 	overflow: hidden;
-	text-overflow:ellipsis;
+	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
-.tow{
+.tow {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;

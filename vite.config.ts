@@ -25,10 +25,7 @@ const config: UserConfig = {
         require( 'postcss-px2rem' )( {
           remUnit: 37.5,
         } ),
-      ],
-      modifyVars: {
-        'preprocess-custom-color': 'green'
-      }
+      ]
     }
   }
   // alias: {

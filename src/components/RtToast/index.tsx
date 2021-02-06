@@ -48,10 +48,10 @@ class Toast extends Component {
       document.getElementById( 'dark-toast' )
     )
   }
-  static loading ( msg: string | "loading", status: boolean = true, timeout: number = 2000 ) {
+  static loading ( msg: string | "loading", status: boolean = true, ) {
     init()
     setLoading( status )
-    setTime( timeout )
+    setTime( 2000 )
     ReactDOM.render(
       <Fragment>
         <i className="iconfont iconshoucang rotate-loop"></i>

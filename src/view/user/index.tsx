@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
 import RtFooter from '../../components/RtFooter'
-import List from './list'
+import TabList from './components/tabList'
 import { is_moment, is_url } from '../../method'
 
 
@@ -61,11 +61,7 @@ export default class User extends Component {
           <i className='iconfont iconjiantou1'></i>
         </div>
         <div className={ style.content }>
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
+          <TabList />
         </div>
         <RtFooter />
       </div >

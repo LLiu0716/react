@@ -7,6 +7,7 @@ import Toast from '../components/RtToast'
  * @param format 时间格式 , 默认 'YYYY-MM-DD'
  */
 export function is_moment ( date: any, format: string = 'YYYY-MM-DD' ) {
+  date = date || new Date()
   return moment( date ).format( format )
 }
 
@@ -35,5 +36,5 @@ export function is_url ( url: string ) {
     } else {
       return process.env.NODE_ENV_URL + url
     }
-  } else url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
+  } else return url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
 }

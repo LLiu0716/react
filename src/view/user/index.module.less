@@ -22,7 +22,7 @@
 			font-size: 18px;
 		}
 	}
-	.name {
+	.nick {
 		display: flex;
 		padding: 12px 12px;
 		align-items: center;
@@ -32,17 +32,19 @@
 			height: 80px;
 			border-radius: 50%;
 			object-fit: cover;
+			margin-right: 8px;
 		}
-		.name_us {
+		.nick_content {
 			flex: 1;
 			line-height: 20px;
 			padding: 8px;
-			.name_us_t {
-				padding: 8px 0;
+			.nick_t {
+				padding: 8px 3px;
 				display: flex;
 				border-bottom: 1px dashed #ccc;
 				.t_name {
 					flex: 1;
+					font-size: 18px;
 					b {
 						font-size: 16px;
 						color: #333;
@@ -53,12 +55,16 @@
 					font-size: 18px;
 				}
 			}
-			.name_us_b {
-				padding: 8px 0;
+			.nick_b {
+				padding: 8px 3px;
+				font-size: 14px;
 			}
 		}
 		i {
 			font-size: 30px;
 		}
+	}
+	.content {
+		padding: 0 12px;
 	}
 }

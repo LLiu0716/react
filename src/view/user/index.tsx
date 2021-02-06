@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
 import RtFooter from '../../components/RtFooter'
-import userImg from '../../assets/tab/user-unlogin.png'
 import List from './list'
-import { YMD } from '../../moment'
+import { is_moment, is_url } from '../../method'
 
 
 const i_nan = {
@@ -18,7 +17,7 @@ const i_nv = {
 export default class User extends Component {
   state: any = {
     user: {},
-    time: '',
+    time: new Date(),
     head_img: ''
   }
   async componentDidMount () {
@@ -29,7 +28,7 @@ export default class User extends Component {
         // console.log( 'user => ', res )
         // this.setState( {
         //   user: res,
-        //   time: YMD( res.create_date ),
+        //   time: is_moment( res.create_date ),
         //   head_img: `${ process.env.NODE_ENV_URL }${ res.head_img }`
         // } )
       } catch ( error ) { }
@@ -43,28 +42,30 @@ export default class User extends Component {
         <header>
           <h2 className={ style.title }>个人中心</h2>
         </header>
-        <div className={ style.name }>
-          <img src={ head_img || userImg } alt="" />
-          <div className={ style.name_us }>
-            <div className={ style.name_us_t }>
-              <span className={ style.t_name }>昵称 : <b>{ user.nickname || '请输入一个昵称' }</b></span>
-              { user.gender === 1 ?
-                <i className="iconfont icon-xingbie" style={ i_nan }></i> :
-                <i className="iconfont icon-xingbie1" style={ i_nv }></i>
+        <div className={ style.nick }>
+          <img src={ is_url( head_img ) } />
+          <div className={ style.nick_content }>
+            <div className={ style.nick_t }>
+              <span className={ style.t_name }>
+                <b>{ user.nickname || '昵称' }</b>
+              </span>
+              { user.gender == 1 ?
+                <i className="iconfont iconxingbienan" style={ i_nan }></i> :
+                <i className="iconfont iconxingbienv" style={ i_nv }></i>
               }
             </div>
-            <div className={ style.name_us_b }>
-              <div className="b_time">生日 : { time || '请输入生日' }</div>
+            <div className={ style.nick_b }>
+              { is_moment( time ) }
             </div>
           </div>
-          <i className='iconfont icon-arrow-right'></i>
+          <i className='iconfont iconjiantou1'></i>
         </div>
-        <div className={ style.w }>
-          <List ></List>
-          <List></List>
-          <List></List>
-          <List></List>
-          <List></List>
+        <div className={ style.content }>
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
         </div>
         <RtFooter />
       </div >

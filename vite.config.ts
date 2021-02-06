@@ -4,7 +4,10 @@ import type { UserConfig } from 'vite'
 
 const config: UserConfig = {
   jsx: 'react',
-  plugins: [ reactPlugin, [ "import", { libraryName: "antd-mobile", style: "css" } ] ],
+  plugins: [
+    reactPlugin,
+    [ 'import', { libraryName: 'antd-mobile', style: 'css' } ]
+  ],
   port: 8888,
   open: true,
   // cssCodeSplit: false,
@@ -23,8 +26,8 @@ const config: UserConfig = {
     less: {
       plugins: [
         require( 'postcss-px2rem' )( {
-          remUnit: 37.5,
-        } ),
+          remUnit: 37.5
+        } )
       ]
     }
   }
@@ -41,4 +44,3 @@ const config: UserConfig = {
   // }
 }
 export default config
-

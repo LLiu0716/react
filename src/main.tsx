@@ -6,7 +6,7 @@ import './method/rem'
 import 'antd-mobile/dist/antd-mobile.css'
 import App from './view/App'
 
-console.log( process.env )
+console.log( "基础信息", process.env )
 
 ReactDOM.render(
   <React.StrictMode>

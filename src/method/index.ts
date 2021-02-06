@@ -35,7 +35,5 @@ export function is_url ( url: string ) {
     } else {
       return process.env.NODE_ENV_URL + url
     }
-  } else {
-    url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
-  }
+  } else url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
 }

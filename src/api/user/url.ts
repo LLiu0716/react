@@ -1,4 +1,9 @@
+/**
+ * @name URL
+ */
+
 export default {
-  login: '/login',
-  register: '/register'
+  user: '/user',
+  user_update: '/user_update',
+  upload: '/upload'
 }

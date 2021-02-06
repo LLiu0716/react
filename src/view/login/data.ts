@@ -1,10 +1,10 @@
-import { start } from "nprogress"
-
 interface Istate {
   username: string
   name: boolean
   password: string
   pass: boolean
+  nickname: string
+  nick: boolean
   newPass: string
   show: boolean
   rule: boolean
@@ -12,8 +12,10 @@ interface Istate {
 
 const state: Istate = {
   name: false,
+  nick: false,
   pass: false,
   show: false,
+  nickname: '',
   username: '',
   password: '',
   newPass: '',

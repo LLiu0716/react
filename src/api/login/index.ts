@@ -1,12 +1,26 @@
-import instance from '../index'
-import url from './url'
+import request from "../instance"
+import url from "./url"
 
-export async function go_login ( data: any ) {
-  let res: any = await instance.post( url.login, data )
+interface I_data {
+  nickname?: string
+  username: string
+  password: string
+}
+
+/**
+ * 登录函数
+ * @param data 登录信息
+ */
+export const set_login = async ( data: I_data ) => {
+  let res: any = await request.post( url.Login, data )
   return res
 }
 
-export async function go_register ( data: any ) {
-  let res: any = await instance.post( url.register, data )
+/**
+ * 注册函数
+ * @param data 注册信息
+ */
+export const set_register = async ( data: I_data ) => {
+  let res: any = await request.post( url.Register, data )
   return res
 }

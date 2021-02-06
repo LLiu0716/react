@@ -1,4 +1,8 @@
+/**
+ * @name URL
+ */
+
 export default {
-  login: '/login',
-  register: '/register'
+  Login: '/login',
+  Register: '/register'
 }

@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { start, done } from 'nprogress'
+import Toast from '../components/RtToast'
 
 console.log( '基地址 =>', process.env.NODE_ENV_URL )
 
 const instance = axios.create( {
-  baseURL: `${ process.env.NODE_ENV_URL }`,
+  baseURL: '' || `${ process.env.NODE_ENV_URL }`,
   method: '' || 'get',
   timeout: 5000
 } )
@@ -22,6 +23,7 @@ instance.interceptors.request.use(
   },
   error => {
     // 对请求错误做些什么
+    Toast.fail( '错误操作' )
     return Promise.reject( error )
   }
 )
@@ -43,8 +45,10 @@ instance.interceptors.response.use(
     const { status } = error.response
     console.log( 'status', status )
     if ( status === 401 ) {
+      Toast.fail( '当前还未登录 , 请先登录' )
       sessionStorage.removeItem( 'token' )
     } else {
+      Toast.fail( '网络错误' )
     }
     return Promise.reject( error )
   }

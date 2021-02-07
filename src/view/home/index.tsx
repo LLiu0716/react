@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
 
-import NnTitle from '../../components/NnTitle'
+import RtTitle from '../../components/RtTitle'
 import RtFooter from '../../components/RtFooter'
 
 
@@ -22,7 +22,7 @@ export default class Home extends Component {
   render () {
     return (
       <div>
-        <NnTitle title='首 页' />
+        <RtTitle title='首 页' />
         Home
         <RtFooter />
       </div>

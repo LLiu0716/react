@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import style from './index.module.less'
 import { Link } from 'react-router-dom'
 
-import NnTitle from '../../components/NnTitle'
+import RtTitle from '../../components/RtTitle'
 import RtFooter from '../../components/RtFooter'
 import TabList from './components/tabList'
 
@@ -48,7 +48,7 @@ export default class User extends Component {
     const { user, time, head_img } = this.state
     return (
       <div className={ style.user }>
-        <NnTitle title='个人中心' />
+        <RtTitle title='个人中心' />
         <Link className={ style.nick } to='/user/set'>
           <img src={ is_url( head_img ) } />
           <div className={ style.nick_content }>

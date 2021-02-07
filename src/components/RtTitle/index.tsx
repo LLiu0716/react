@@ -5,7 +5,7 @@ interface Ititle {
   title: string
 }
 
-const NnHeader = ( props: Ititle ) => {
+const RtHeader = ( props: Ititle ) => {
   return (
     <header className={ style.header }>
       <h2 className={ style.title }>{ props.title }</h2>
@@ -13,8 +13,8 @@ const NnHeader = ( props: Ititle ) => {
   )
 }
 
-export default NnHeader
+export default RtHeader
 
 
 // import { withRouter } from 'react-router-dom'
-// export default withRouter( NnHeader )
+// export default withRouter( RtHeader )

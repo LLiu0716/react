@@ -37,13 +37,13 @@ export default class User extends Component {
     return (
       <div className={ style.set } >
         <RtHeader title="设置" />
-        {!show ?
-          <div className={ style.content }>
-            <RtItem user={ user } />
-          </div> :
-          <div className={ style.content }>
+        <div className={ style.content }>
+          {/* 异步数据 , 动态渲染 , 所以会产生空白期 , 空白期使用 loding 页面 */ }
+          { show ?
+            <RtItem user={ user } /> :
             <RtLoding num={ 5 } />
-          </div> }
+          }
+        </div>
       </div>
     )
   }

@@ -1,11 +1,11 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import style from './index.module.less'
 import { Link } from 'react-router-dom'
 import SsInput from './RtInput'
 import RtButton from '../../components/RtButton'
-import Toast from '../../components/RtToast'
+// import Toast from '../../components/RtToast'
 import state from './data'
-import { is_res } from '../../method'
+import { is_res, is_Toast } from '../../method'
 
 import { set_login, set_register } from '../../api/login'
 
@@ -23,14 +23,12 @@ export default class Login extends Component<any> {
         )
         console.log( '登录 => ', res )
         if ( res.statusCode == 200 ) {
-          Toast.loading( res.message )
+          is_Toast.loading( res.message )
           res = is_res( res )
           sessionStorage.setItem( 'token', res.token )
           sessionStorage.setItem( 'user_id', res.user.id )
           this.props.history.push( '/home' )
-        } else {
-          Toast.fail( res.message )
-        }
+        } else is_Toast.fail( res.message )
       } else {
         if ( this.state.password !== this.state.newPass ) return
         let res = await set_register( {
@@ -40,11 +38,11 @@ export default class Login extends Component<any> {
         }
         )
         if ( res.statusCode == 200 ) {
-          Toast.success( res.message )
+          is_Toast.success( res.message )
           this.setState( {
             rule: true
           } )
-        } else { Toast.fail( res.message ) }
+        } else is_Toast.fail( res.message )
       }
     } catch ( error ) { console.log( error ) }
   }

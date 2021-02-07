@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 
 import RtTitle from '../../components/RtTitle'
 import RtFooter from '../../components/RtFooter'
+import RtButton from '../../components/RtButton'
 import TabList from './components/tabList'
 
-import { is_moment, is_url } from '../../method'
+import { is_moment, is_url, alert, is_Toast } from '../../method'
 
 const i_nan = {
   color: '#75b9eb'
@@ -23,7 +24,7 @@ const list = [
   { title: '设置', pash: '/user/set', content: '' }
 ]
 
-export default class User extends Component {
+export default class User extends Component<any> {
   state: any = {
     user: {},
     time: new Date(),
@@ -42,6 +43,22 @@ export default class User extends Component {
         // } )
       } catch ( error ) { }
     }
+  }
+
+  out () {
+    alert( '提示', '你确定要退出吗 ?', [
+      { text: '取消' },
+      {
+        text: '确定',
+        onPress: () =>
+          new Promise( ( resolve ) => {
+            is_Toast.info( '退出成功', 1 )
+            setTimeout( resolve, 100 )
+            console.log( this.props )
+            this.props.history.push( '/login' )
+          } )
+      }
+    ] )
   }
 
   render () {
@@ -78,6 +95,9 @@ export default class User extends Component {
               />
             )
           } ) }
+        </div>
+        <div className={ style.out }>
+          <RtButton name='退 出' click={ () => { this.out() } } />
         </div>
         <RtFooter />
       </div >

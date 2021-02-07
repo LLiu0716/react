@@ -1,5 +1,11 @@
 import moment from 'moment'
-import Toast from '../components/RtToast'
+// import Toast from '../components/RtToast'
+
+import { Modal, Toast } from 'antd-mobile'
+
+export const alert = Modal.alert
+
+export const is_Toast = Toast
 
 /**
  * 格式化处理 时间
@@ -20,7 +26,7 @@ export function is_res ( res: any ) {
   if ( res.statusCode == 200 ) {
     return res.data
   } else {
-    Toast.fail( res.message )
+    is_Toast.fail( res.message )
     return false
   }
 }

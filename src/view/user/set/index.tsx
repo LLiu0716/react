@@ -1,12 +1,15 @@
 import React from 'react'
 import style from './index.module.less'
 
-export default function List (props: any) {
+import RtHeader from '../../../components/RtHeader'
 
+
+
+export default function List ( props: any ) {
+  console.log( props )
   return (
-    <div className={style.list}>
-      <div className={style.title}>666</div>
-      <i className='iconfont icon-arrow-right'></i>
+    <div className={ style.list }>
+      <RtHeader title="设置" />
     </div>
   )
 }

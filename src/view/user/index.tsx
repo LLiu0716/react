@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
+import { Link } from 'react-router-dom'
+
+import NnTitle from '../../components/NnTitle'
 import RtFooter from '../../components/RtFooter'
 import TabList from './components/tabList'
-import { is_moment, is_url } from '../../method'
 
+import { is_moment, is_url } from '../../method'
 
 const i_nan = {
   color: '#75b9eb'
@@ -13,6 +16,12 @@ const i_nv = {
   color: '#ff3ec9'
 }
 
+const list = [
+  { title: '我的关注', pash: '/user/live', content: '关注的人' },
+  { title: '我的跟帖', pash: '/user/follow', content: '跟帖/回复' },
+  { title: '我的收藏', pash: '/user/enshrine', content: '文档/视频' },
+  { title: '设置', pash: '/user/set', content: '' }
+]
 
 export default class User extends Component {
   state: any = {
@@ -39,10 +48,8 @@ export default class User extends Component {
     const { user, time, head_img } = this.state
     return (
       <div className={ style.user }>
-        <header>
-          <h2 className={ style.title }>个人中心</h2>
-        </header>
-        <div className={ style.nick }>
+        <NnTitle title='个人中心' />
+        <Link className={ style.nick } to='/user/set'>
           <img src={ is_url( head_img ) } />
           <div className={ style.nick_content }>
             <div className={ style.nick_t }>
@@ -59,9 +66,18 @@ export default class User extends Component {
             </div>
           </div>
           <i className='iconfont iconjiantou1'></i>
-        </div>
+        </Link>
         <div className={ style.content }>
-          <TabList />
+          { list.map( ( v, i ) => {
+            return (
+              <TabList
+                title={ v.title }
+                content={ v.content }
+                pash={ v.pash }
+                key={ i }
+              />
+            )
+          } ) }
         </div>
         <RtFooter />
       </div >

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import style from './index.module.less'
 
-import RtHeader from '../../components/RtHeader'
+import NnTitle from '../../components/NnTitle'
 import RtFooter from '../../components/RtFooter'
+
 
 // import { home } from "../../api"
 
@@ -20,7 +22,7 @@ export default class Home extends Component {
   render () {
     return (
       <div>
-        <RtHeader title='首 页' />
+        <NnTitle title='首 页' />
         Home
         <RtFooter />
       </div>

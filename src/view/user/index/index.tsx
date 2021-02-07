@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import style from './index.module.less'
 import { Link } from 'react-router-dom'
 
-import RtTitle from '../../components/RtTitle'
-import RtFooter from '../../components/RtFooter'
-import RtButton from '../../components/RtButton'
-import TabList from './components/tabList'
+import RtTitle from '../../../components/RtTitle'
+import RtFooter from '../../../components/RtFooter'
+import RtButton from '../../../components/RtButton'
+import TabList from '../components/tabList'
 
-import { is_moment, is_url, alert, is_Toast } from '../../method'
+import { is_moment, is_url, alert, is_Toast } from '../../../method'
 
 const i_nan = {
   color: '#75b9eb'

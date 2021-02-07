@@ -9,7 +9,7 @@ import {
 
 import Home from '../view/home'
 
-const User = lazy( () => import( '../view/user' ) )
+const User = lazy( () => import( '../view/user/index' ) )
 const Login = lazy( () => import( '../view/login' ) )
 const Set = lazy( () => import( '../view/user/set' ) )
 const Live = lazy( () => import( '../view/user/live' ) )

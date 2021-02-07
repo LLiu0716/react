@@ -8,7 +8,7 @@ import RtHeader from '../../../components/RtHeader'
 export default function List ( props: any ) {
   console.log( props )
   return (
-    <div className={ style.list }>
+    <div className={ style.set }>
       <RtHeader title="设置" />
     </div>
   )

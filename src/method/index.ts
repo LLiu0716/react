@@ -1,11 +1,11 @@
 import moment from 'moment'
 // import Toast from '../components/RtToast'
 
-import { Modal, Toast } from 'antd-mobile'
+import { Modal, Toast as is_Toast } from 'antd-mobile'
 
 export const alert = Modal.alert
 
-export const is_Toast = Toast
+export const Toast = is_Toast
 
 export const APP_REACT_TOKEN = 'APP_REACT_TOKEN'
 export const APP_REACT_ID = 'APP_REACT_ID'
@@ -30,7 +30,7 @@ export function is_res ( res: any ) {
   if ( res.statusCode == 200 ) {
     return res.data
   } else {
-    is_Toast.fail( res.message )
+    Toast.fail( res.message )
     return false
   }
 }

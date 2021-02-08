@@ -5,7 +5,7 @@ import SsInput from './RtInput'
 import RtButton from '../../components/RtButton'
 // import Toast from '../../components/RtToast'
 import state from './data'
-import { is_res, is_Toast, is_storage } from '../../method'
+import { is_res, Toast, is_storage } from '../../method'
 
 import { set_login, set_register } from '../../api/login'
 
@@ -23,13 +23,13 @@ export default class Login extends Component<any> {
         )
         console.log( '登录 => ', res )
         if ( res.statusCode == 200 ) {
-          is_Toast.loading( res.message )
+          Toast.loading( res.message )
           res = is_res( res )
           is_storage( res.token, res.user.id )
           // sessionStorage.setItem( 'token', res.token )
           // sessionStorage.setItem( 'user_id', res.user.id )
           this.props.history.push( '/home' )
-        } else is_Toast.fail( res.message )
+        } else Toast.fail( res.message )
       } else {
         if ( this.state.password !== this.state.newPass ) return
         let res = await set_register( {
@@ -39,11 +39,11 @@ export default class Login extends Component<any> {
         }
         )
         if ( res.statusCode == 200 ) {
-          is_Toast.success( res.message )
+          Toast.success( res.message )
           this.setState( {
             rule: true
           } )
-        } else is_Toast.fail( res.message )
+        } else Toast.fail( res.message )
       }
     } catch ( error ) { console.log( error ) }
   }

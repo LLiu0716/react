@@ -11,7 +11,7 @@ import {
   is_moment,
   is_url,
   alert,
-  is_Toast,
+  Toast,
   is_res,
   APP_REACT_ID,
   APP_REACT_TOKEN
@@ -75,7 +75,7 @@ export default class User extends Component<any> {
         text: '确定',
         onPress: () =>
           new Promise( resolve => {
-            is_Toast.info( '退出成功', 1 )
+            Toast.info( '退出成功', 1 )
             sessionStorage.removeItem( APP_REACT_ID )
             sessionStorage.removeItem( APP_REACT_TOKEN )
             setTimeout( resolve, 100 )

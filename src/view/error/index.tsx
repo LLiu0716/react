@@ -1,7 +1,10 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default function Error () {
+function Error ( props: any ) {
   return (
-    <div className="">页面丢失</div>
+    <div onClick={ () => props.history.goBack() }>404 页面丢失</div>
   )
 }
+
+export default withRouter( Error )

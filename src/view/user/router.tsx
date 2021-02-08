@@ -4,5 +4,8 @@ import RouterView from '../../router/routerView'
 
 export default function User ( props: any ) {
   const { route } = props
-  return <RouterView route={ route } />
+  console.log( 'route', props )
+  return (
+    <RouterView route={ route } />
+  )
 }

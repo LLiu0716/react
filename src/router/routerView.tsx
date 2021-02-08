@@ -15,7 +15,7 @@ export default function RouterView ( prpos: any ) {
     <Switch>
       <Route path='/' exact render={ () => <Redirect to='/home' /> } />
       { route.map( ( v: any, i: number ) => {
-        return v.childen ?
+        return (
           <Route
             exact
             key={ i }
@@ -29,21 +29,7 @@ export default function RouterView ( prpos: any ) {
               }
               return <v.component route={ v.childen } { ...props } />
             } }
-          /> :
-          <Route
-            exact
-            key={ i }
-            path={ v.path }
-            render={ props => {
-              if ( v.meta ) {
-                if ( !is_token() ) {
-                  return <Redirect to={ `/login?url=${ props.match.url }` } />
-                }
-                return <v.component { ...props } />
-              }
-              return <v.component { ...props } />
-            } }
-          />
+          /> )
       } ) }
       <Route component={ Error } />
     </Switch>

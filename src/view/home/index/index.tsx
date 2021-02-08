@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
 
-import RtTitle from '../../components/RtTitle'
-import RtFooter from '../../components/RtFooter'
+import RtTitle from '../../../components/RtTitle'
+import RtFooter from '../../../components/RtFooter'
 
 
 // import { home } from "../../api"
@@ -13,10 +13,11 @@ import RtFooter from '../../components/RtFooter'
 //   click: (id: number) => void
 // }
 
-export default class Home extends Component {
+
+export default class Home extends Component<any> {
   async componentDidMount () {
     // let res = await home()
-    // console.log('res', res)
+    console.log( 'res', this.props.route )
   }
 
   render () {

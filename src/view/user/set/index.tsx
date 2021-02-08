@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
 
-import { set_User } from '../../../api/user'
-import { is_res } from '../../../method'
+import { is_res, APP_REACT_ID } from '../../../method'
+import { get_user, go_login } from '../method'
 
 import RtHeader from '../../../components/RtHeader'
 import RtLoding from '../../../components/RtLoding'
 import RtItem from './components/item'
 
-export default class User extends Component {
+export default class User extends Component<any> {
   state = {
     show: false,
     user: {} as any
   }
-  async get_user () {
-    const id: string = sessionStorage.getItem( 'user_id' ) || ''
+  async is_user () {
+    const id: string = sessionStorage.getItem( APP_REACT_ID ) || ''
     try {
       if ( id ) {
-        let res = await set_User( id )
+        let res = await get_user()
         res = is_res( res )
         console.log( res )
         this.setState( {
@@ -29,7 +29,10 @@ export default class User extends Component {
   }
 
   componentDidMount () {
-    this.get_user()
+    const show: boolean = go_login()
+    if ( show ) {
+      this.is_user()
+    } else this.props.history.push( '/login' )
   }
 
   render () {

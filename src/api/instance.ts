@@ -15,7 +15,7 @@ const instance = axios.create( {
 instance.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
-    const token = sessionStorage.getItem( 'token' )
+    const token = sessionStorage.getItem( 'APP_REACT_TOKEN' )
     if ( token ) {
       config.headers.Authorization = token
     }
@@ -47,7 +47,7 @@ instance.interceptors.response.use(
     console.log( 'status', status )
     if ( status === 401 ) {
       is_Toast.info( '当前还未登录 , 请先登录' )
-      sessionStorage.removeItem( 'token' )
+      sessionStorage.removeItem( 'APP_REACT_TOKEN' )
     } else {
       is_Toast.info( '网络错误' )
     }

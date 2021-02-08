@@ -5,7 +5,7 @@ import SsInput from './RtInput'
 import RtButton from '../../components/RtButton'
 // import Toast from '../../components/RtToast'
 import state from './data'
-import { is_res, is_Toast } from '../../method'
+import { is_res, is_Toast, is_storage } from '../../method'
 
 import { set_login, set_register } from '../../api/login'
 
@@ -25,8 +25,9 @@ export default class Login extends Component<any> {
         if ( res.statusCode == 200 ) {
           is_Toast.loading( res.message )
           res = is_res( res )
-          sessionStorage.setItem( 'token', res.token )
-          sessionStorage.setItem( 'user_id', res.user.id )
+          is_storage( res.token, res.user.id )
+          // sessionStorage.setItem( 'token', res.token )
+          // sessionStorage.setItem( 'user_id', res.user.id )
           this.props.history.push( '/home' )
         } else is_Toast.fail( res.message )
       } else {

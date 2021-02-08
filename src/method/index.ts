@@ -7,6 +7,10 @@ export const alert = Modal.alert
 
 export const is_Toast = Toast
 
+export const APP_REACT_TOKEN = 'APP_REACT_TOKEN'
+export const APP_REACT_ID = 'APP_REACT_ID'
+export const APP_REACT_USER = 'APP_REACT_USER'
+
 /**
  * 格式化处理 时间
  * @param date 时间戳
@@ -43,4 +47,26 @@ export function is_url ( url: string ) {
       return process.env.NODE_ENV_URL + url
     }
   } else return url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
+}
+
+/**
+ * 校验是否登录
+ * @return 已登录 true 未登录 false
+ */
+export function is_token () {
+  const token = sessionStorage.getItem( APP_REACT_TOKEN )
+  if ( token ) return true
+  else return false
+}
+
+/**
+ * 存储数据到本地
+ * @param token 必传 , token
+ * @param id 必传 , 用户id
+ * @param user 选传 , 个人信息
+ */
+export function is_storage ( token: string, id: string, user?: any ) {
+  sessionStorage.setItem( APP_REACT_TOKEN, token )
+  sessionStorage.setItem( APP_REACT_ID, id )
+  sessionStorage.setItem( APP_REACT_USER, JSON.stringify( user ) )
 }

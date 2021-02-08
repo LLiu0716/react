@@ -7,7 +7,17 @@ import RtFooter from '../../../components/RtFooter'
 import RtButton from '../../../components/RtButton'
 import TabList from '../components/tabList'
 
-import { is_moment, is_url, alert, is_Toast } from '../../../method'
+import {
+  is_moment,
+  is_url,
+  alert,
+  is_Toast,
+  is_res,
+  APP_REACT_ID,
+  APP_REACT_TOKEN
+} from '../../../method'
+
+import { get_user } from '../method'
 
 const i_nan = {
   color: '#75b9eb'
@@ -28,21 +38,34 @@ export default class User extends Component<any> {
   state: any = {
     user: {},
     time: new Date(),
-    head_img: ''
+    head_img: '',
+    id: ''
   }
-  async componentDidMount () {
-    const id = localStorage.getItem( 'user_id' )
-    if ( id ) {
-      try {
-        // let res = await ss_user( id )
-        // console.log( 'user => ', res )
-        // this.setState( {
-        //   user: res,
-        //   time: is_moment( res.create_date ),
-        //   head_img: `${ process.env.NODE_ENV_URL }${ res.head_img }`
-        // } )
-      } catch ( error ) { }
+
+  async is_user () {
+    try {
+      const id: string = sessionStorage.getItem( APP_REACT_ID ) || ''
+      if ( id ) {
+        let res = await get_user()
+        res = is_res( res )
+        console.log( 'user => ', res )
+        this.setState( {
+          user: res,
+          time: is_moment( res.create_date ),
+          head_img: res.head_img
+        } )
+      }
+    } catch ( error ) {
+      console.log( error )
     }
+  }
+
+  componentDidMount () {
+    console.log( this.props )
+    this.is_user()
+    this.setState( {
+      id: sessionStorage.getItem( APP_REACT_ID ) || ''
+    } )
   }
 
   out () {
@@ -51,8 +74,10 @@ export default class User extends Component<any> {
       {
         text: '确定',
         onPress: () =>
-          new Promise( ( resolve ) => {
+          new Promise( resolve => {
             is_Toast.info( '退出成功', 1 )
+            sessionStorage.removeItem( APP_REACT_ID )
+            sessionStorage.removeItem( APP_REACT_TOKEN )
             setTimeout( resolve, 100 )
             console.log( this.props )
             this.props.history.push( '/login' )
@@ -62,7 +87,7 @@ export default class User extends Component<any> {
   }
 
   render () {
-    const { user, time, head_img } = this.state
+    const { user, time, head_img, id } = this.state
     return (
       <div className={ style.user }>
         <RtTitle title='个人中心' />
@@ -74,13 +99,11 @@ export default class User extends Component<any> {
                 <b>{ user.nickname || '昵称' }</b>
               </span>
               { user.gender == 1 ?
-                <i className="iconfont iconxingbienan" style={ i_nan }></i> :
-                <i className="iconfont iconxingbienv" style={ i_nv }></i>
+                <i className='iconfont iconxingbienan' style={ i_nan }></i> :
+                <i className='iconfont iconxingbienv' style={ i_nv }></i>
               }
             </div>
-            <div className={ style.nick_b }>
-              { is_moment( time ) }
-            </div>
+            <div className={ style.nick_b }>{ is_moment( time ) }</div>
           </div>
           <i className='iconfont iconjiantou1'></i>
         </Link>
@@ -97,10 +120,18 @@ export default class User extends Component<any> {
           } ) }
         </div>
         <div className={ style.out }>
-          <RtButton name='退 出' click={ () => { this.out() } } />
+          { id ?
+            <RtButton
+              name='退 出'
+              click={ () => this.out() }
+            /> :
+            <Link to='/login' className={ style.login }>
+              还没有登录 ?<span> 去登录</span>
+            </Link>
+          }
         </div>
         <RtFooter />
-      </div >
+      </div>
     )
   }
 }

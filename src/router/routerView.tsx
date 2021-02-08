@@ -10,7 +10,6 @@ const Error = lazy( () => import( '../view/error' ) )
  */
 export default function RouterView ( prpos: any ) {
   const { route } = prpos
-  console.log( 'router_list', route )
   return (
     <Switch>
       <Route path='/' exact render={ () => <Redirect to='/home' /> } />

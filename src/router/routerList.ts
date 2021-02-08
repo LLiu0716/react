@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 
-import Homes from '../view/home/index'
+import Homes from '../view/home/router'
 
 import home from './home'
 import user from './user'

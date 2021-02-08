@@ -17,7 +17,6 @@ import RtFooter from '../../../components/RtFooter'
 export default class Home extends Component<any> {
   async componentDidMount () {
     // let res = await home()
-    console.log( 'res', this.props.route )
   }
 
   render () {

@@ -11,7 +11,7 @@ export default function RtLoding ( props: I_num ) {
     list.push( i )
   }
   return (
-    <div className={ style.lodin }>
+    <div className={ style.loding }>
       { list.map( v => {
         return (
           <div

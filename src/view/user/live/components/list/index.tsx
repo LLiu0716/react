@@ -33,7 +33,7 @@ export default class List extends Component {
     return (
       <div className={ style.list } >
         {
-          !list.length ?
+          list.length ?
             list.map( ( v, i ) => {
               return (
                 <LazyLoad height={ 100 } key={ i }>

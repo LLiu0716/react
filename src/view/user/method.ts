@@ -15,3 +15,7 @@ export const go_login = () => {
   if ( !token ) return false
   else return true
 }
+
+export const i_nan = { color: '#75b9eb' }
+
+export const i_nv = { color: '#ff3ec9' }

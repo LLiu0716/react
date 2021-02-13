@@ -1,0 +1,44 @@
+.item {
+	height: 100px;
+	display: flex;
+	padding: 12px 12px;
+	align-items: center;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+	img {
+		width: 60px;
+		height: 60px;
+		border-radius: 20%;
+		border: 1px solid #ccc;
+		object-fit: cover;
+		margin-right: 8px;
+	}
+	.nick_content {
+		flex: 1;
+		line-height: 20px;
+		padding: 8px;
+		.nick_t {
+			padding: 8px 3px;
+			display: flex;
+			.t_name {
+				flex: 1;
+				font-size: 18px;
+				b {
+					font-size: 16px;
+					color: #333;
+				}
+			}
+			i {
+				margin-right: 12px;
+				font-size: 18px;
+			}
+		}
+		.nick_b {
+			padding: 8px 3px;
+			font-size: 14px;
+		}
+	}
+	i {
+		font-size: 30px;
+	}
+}

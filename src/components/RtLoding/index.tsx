@@ -5,13 +5,13 @@ interface I_num {
   num: number
 }
 
-export default function NnHeader ( props: I_num ) {
+export default function RtLoding ( props: I_num ) {
   const list: Array<number> = []
   for ( let i = 0; i < props.num; i++ ) {
     list.push( i )
   }
   return (
-    <div>
+    <div className={ style.lodin }>
       { list.map( v => {
         return (
           <div

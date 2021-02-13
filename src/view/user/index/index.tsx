@@ -18,15 +18,7 @@ import {
   APP_REACT_TOKEN
 } from '../../../method'
 
-import { get_user } from '../method'
-
-const i_nan = {
-  color: '#75b9eb'
-}
-
-const i_nv = {
-  color: '#ff3ec9'
-}
+import { i_nan, i_nv, get_user } from '../method'
 
 const list = [
   { title: '我的关注', pash: '/user/live', content: '关注的人' },
@@ -91,7 +83,7 @@ export default class User extends Component<any> {
     return (
       <div className={ style.user }>
         <RtTitle title='个人中心' />
-        <LazyLoad height={ 200 }>
+        <LazyLoad height={ 300 }>
           <Link className={ style.nick } to='/user/set'>
             { id && ( <img src={ head_img } /> ) }
             { !id && ( <img src='https://img.yzcdn.cn/vant/apple-1.jpg' /> ) }
@@ -100,7 +92,7 @@ export default class User extends Component<any> {
                 <span className={ style.t_name }>
                   <b>{ user.nickname || '昵称' }</b>
                 </span>
-                { user.gender == 1 ?
+                { user.gender ?
                   <i className='iconfont iconxingbienan' style={ i_nan }></i> :
                   <i className='iconfont iconxingbienv' style={ i_nv }></i>
                 }

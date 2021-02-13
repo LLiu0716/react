@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import style from './index.module.less'
 import { Link } from 'react-router-dom'
 import SsInput from './RtInput'
-import RtButton from '../../components/RtButton'
+import RtButton from '/@/components/RtButton'
 // import Toast from '../../components/RtToast'
 import state from './data'
-import { is_res, Toast, is_storage } from '../../method'
+import { is_res, Toast, is_storage } from '/@/method'
 
-import { set_login, set_register } from '../../api/login'
+import { set_login, set_register } from '/@/api/login'
 
 export default class Login extends Component<any> {
   state = state

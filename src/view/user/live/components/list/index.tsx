@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import style from './index.module.less'
 
 import LazyLoad from 'react-lazyload'
-import RtLoding from '../../../../../components/RtLoding'
+import RtLoding from '/@/components/RtLoding'
 import Item from '../item'
-import { set_follows } from '../../../../../api/user/live'
+import { set_follows } from '/@/api/user/live'
 import { is_res } from '/@/method'
 
-import { I_arr } from '../../type'
+import { I_arr } from '/@/types'
 
 export default class List extends Component {
   state: I_arr = {

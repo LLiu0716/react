@@ -3,13 +3,13 @@ import style from './index.module.less'
 
 import { Button } from 'antd-mobile';
 
-import { is_moment, is_url, Toast } from '../../../../../method'
+import { is_moment, is_url, Toast } from '/@/method'
 
-import { I_list } from '../../type'
+import { I_list } from '/@/types'
 
 import { i_nan, i_nv } from '../../../method'
 
-import { set_user_follows, set_user_unfollow } from '../../../../../api/user/live'
+import { set_user_follows, set_user_unfollow } from '/@/api/user/live'
 
 export default class item extends Component<I_list> {
   state = {

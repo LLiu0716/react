@@ -3,9 +3,9 @@ import style from './index.module.less'
 import { Link } from 'react-router-dom'
 import LazyLoad from 'react-lazyload'
 
-import RtTitle from '../../../components/RtTitle'
-import RtFooter from '../../../components/RtFooter'
-import RtButton from '../../../components/RtButton'
+import RtTitle from '/@/components/RtTitle'
+import RtFooter from '/@/components/RtFooter'
+import RtButton from '/@/components/RtButton'
 import TabList from '../components/tabList'
 
 import {
@@ -16,7 +16,7 @@ import {
   is_res,
   APP_REACT_ID,
   APP_REACT_TOKEN
-} from '../../../method'
+} from '/@/method'
 
 import { i_nan, i_nv, get_user } from '../method'
 

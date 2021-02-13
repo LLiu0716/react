@@ -1,8 +1,8 @@
 import React, { lazy } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import { is_token } from '../method'
+import { is_token } from '/@/method'
 
-const Error = lazy( () => import( '../view/error' ) )
+const Error = lazy( () => import( '/@/view/error' ) )
 
 /**
  * 渲染路由组件

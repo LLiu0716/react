@@ -1,13 +1,13 @@
 import { lazy } from 'react'
 
-import Homes from '../view/home/router'
+import Homes from '/@/view/home/router'
 
 import home from './home'
 import user from './user'
-import App from '../App'
+import App from '/@/App'
 
-const Login = lazy( () => import( '../view/login' ) )
-const Users = lazy( () => import( '../view/user/router' ) )
+const Login = lazy( () => import( '/@/view/login' ) )
+const Users = lazy( () => import( '/@/view/user/router' ) )
 
 const list = [
   { path: '/home', component: Homes, childen: home },

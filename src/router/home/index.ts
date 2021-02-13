@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 
-import Home from '../../view/home/index'
+import Home from '/@/view/home/index'
 
 const home = [
   { path: '/home/', component: Home }

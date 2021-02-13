@@ -4,9 +4,11 @@ import { start, done } from 'nprogress'
 import { Toast } from '../method'
 
 console.log( '基地址 =>', process.env.NODE_ENV_URL )
+console.log( '基地址 =>', import.meta.env.VITE_APP_TITLE )
 
 const instance = axios.create( {
-  baseURL: '' || `${ process.env.NODE_ENV_URL }`,
+  // baseURL: '' || `${ process.env.NODE_ENV_URL }` || import.meta.env.VITE_APP_TITLE,
+  baseURL: '' || import.meta.env.VITE_APP_TITLE,
   method: '' || 'get',
   timeout: 5000
 } )

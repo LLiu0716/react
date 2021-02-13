@@ -1,6 +1,6 @@
 import * as reactPlugin from 'vite-plugin-react'
 import type { UserConfig } from 'vite'
-// const path = require( 'path' )
+const path = require( 'path' )
 
 const config: UserConfig = {
   jsx: 'react',
@@ -17,10 +17,8 @@ const config: UserConfig = {
   // https: false,
   // ssr: false,
   optimizeDeps: {
-    // include: [ 'antd-mobile', 'axios', 'nprogress', 'react-router-dom' ],
-    // // exclude: [ 'antd-mobile', 'axios', 'nprogress', 'react-router-dom' ]
-    include: [ 'antd-mobile' ],
-    exclude: [ 'antd-mobile' ]
+    // include: [ 'antd-mobile', 'axios', 'react-lazyload', 'nprogress', 'react-router-dom' ]
+    // exclude: [ 'antd-mobile', 'axios', 'react-lazyload', 'nprogress', 'react-router-dom' ]
   },
   cssPreprocessOptions: {
     less: {
@@ -30,10 +28,10 @@ const config: UserConfig = {
         } )
       ]
     }
+  },
+  alias: {
+    '/@/': path.resolve( __dirname, './src' )
   }
-  // alias: {
-  // '/@/': path.resolve( __dirname, './src' )
-  // }
   // proxy: {
   //   '/foo': 'http://localhost:4567/foo',
   //   '/api': {

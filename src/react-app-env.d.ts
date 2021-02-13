@@ -16,8 +16,10 @@ declare namespace NodeJS {
      * You can overwrite the default mode used for a command by passing the --mode option flag.
      * 
      */
+    VITE_APP_TITLE: string
+    VITE_APP_NODE_ENV_URL: string
     NODE_ENV_URL: string
-    readonly NODE_ENV: 'development' | 'production' | 'la'
+    readonly NODE_ENV: 'development' | 'production' | 'staging'
   }
 }
 

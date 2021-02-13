@@ -5,7 +5,7 @@ import LazyLoad from 'react-lazyload'
 import RtLoding from '../../../../../components/RtLoding'
 import Item from '../item'
 import { set_follows } from '../../../../../api/user/live'
-import { is_res } from '../../../../../method'
+import { is_res } from '/@/method'
 
 import { I_arr } from '../../type'
 

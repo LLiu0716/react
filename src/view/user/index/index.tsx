@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import style from './index.module.less'
 import { Link } from 'react-router-dom'
+import LazyLoad from 'react-lazyload'
 
 import RtTitle from '../../../components/RtTitle'
 import RtFooter from '../../../components/RtFooter'
@@ -52,7 +53,7 @@ export default class User extends Component<any> {
         this.setState( {
           user: res,
           time: is_moment( res.create_date ),
-          head_img: res.head_img
+          head_img: is_url( res.head_img )
         } )
       }
     } catch ( error ) {
@@ -61,7 +62,6 @@ export default class User extends Component<any> {
   }
 
   componentDidMount () {
-    console.log( this.props )
     this.is_user()
     this.setState( {
       id: sessionStorage.getItem( APP_REACT_ID ) || ''
@@ -91,22 +91,25 @@ export default class User extends Component<any> {
     return (
       <div className={ style.user }>
         <RtTitle title='个人中心' />
-        <Link className={ style.nick } to='/user/set'>
-          <img src={ is_url( head_img ) } />
-          <div className={ style.nick_content }>
-            <div className={ style.nick_t }>
-              <span className={ style.t_name }>
-                <b>{ user.nickname || '昵称' }</b>
-              </span>
-              { user.gender == 1 ?
-                <i className='iconfont iconxingbienan' style={ i_nan }></i> :
-                <i className='iconfont iconxingbienv' style={ i_nv }></i>
-              }
+        <LazyLoad height={ 200 }>
+          <Link className={ style.nick } to='/user/set'>
+            { id && ( <img src={ head_img } /> ) }
+            { !id && ( <img src='https://img.yzcdn.cn/vant/apple-1.jpg' /> ) }
+            <div className={ style.nick_content }>
+              <div className={ style.nick_t }>
+                <span className={ style.t_name }>
+                  <b>{ user.nickname || '昵称' }</b>
+                </span>
+                { user.gender == 1 ?
+                  <i className='iconfont iconxingbienan' style={ i_nan }></i> :
+                  <i className='iconfont iconxingbienv' style={ i_nv }></i>
+                }
+              </div>
+              <div className={ style.nick_b }>{ is_moment( time ) }</div>
             </div>
-            <div className={ style.nick_b }>{ is_moment( time ) }</div>
-          </div>
-          <i className='iconfont iconjiantou1'></i>
-        </Link>
+            <i className='iconfont iconjiantou1'></i>
+          </Link>
+        </LazyLoad>
         <div className={ style.content }>
           { list.map( ( v, i ) => {
             return (

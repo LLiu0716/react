@@ -1,15 +1,14 @@
 import React from 'react'
-import style from './index.module.less'
 
-import RtHeader from '../../../components/RtHeader'
-import RtLoding from '../../../components/RtLoding'
+import RtHeader from '/@/components/RtHeader'
+import List from './components/list'
 
-export default function List ( props: any ) {
+export default function Follow () {
 
   return (
-    <div className={ style.list }>
+    <div>
       <RtHeader title="我的跟帖" />
-      <i className='iconfont icon-arrow-right'></i>
+      <List />
     </div>
   )
 }

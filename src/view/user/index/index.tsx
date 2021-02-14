@@ -30,7 +30,7 @@ const list = [
 export default class User extends Component<any> {
   state = {
     time: Date.now(),
-    head_img: 'https://img.yzcdn.cn/vant/apple-1.jpg',
+    head_img: 'https://img.yzcdn.cn/vant/apple-8.jpg',
     gender: 1,
     nickname: '昵称',
     id: ''

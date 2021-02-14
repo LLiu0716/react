@@ -17,11 +17,11 @@ const instance = axios.create( {
 instance.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
+    start()
     const token = sessionStorage.getItem( 'APP_REACT_TOKEN' )
     if ( token ) {
       config.headers.Authorization = token
     }
-    start()
     return config
   },
   error => {
@@ -34,8 +34,8 @@ instance.interceptors.request.use(
 // 添加响应拦截器
 instance.interceptors.response.use(
   response => {
-    // 对响应数据做点什么
     done()
+    // 对响应数据做点什么
     const { status } = response
     if ( status === 200 ) {
       return response.data

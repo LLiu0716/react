@@ -87,11 +87,11 @@ export default class User extends Component<any> {
             <img src={ is_url( head_img ) } />
             <div className={ style.nick_content }>
               <div className={ style.nick_t }>
-                <b className={ style.t_name }>{ nickname }</b>
                 { gender ?
                   <i className='iconfont iconxingbienan' style={ i_nan }></i> :
                   <i className='iconfont iconxingbienv' style={ i_nv }></i>
                 }
+                <b className={ style.t_name }>{ nickname }</b>
               </div>
               <div className={ style.nick_b }>{ is_moment( time ) }</div>
             </div>

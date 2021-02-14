@@ -28,10 +28,11 @@ const list = [
 ]
 
 export default class User extends Component<any> {
-  state: any = {
-    user: {},
-    time: new Date(),
-    head_img: '',
+  state = {
+    time: Date.now(),
+    head_img: 'https://img.yzcdn.cn/vant/apple-1.jpg',
+    gender: 1,
+    nickname: '昵称',
     id: ''
   }
 
@@ -41,16 +42,14 @@ export default class User extends Component<any> {
       if ( id ) {
         let res = await get_user()
         res = is_res( res )
-        console.log( 'user => ', res )
         this.setState( {
-          user: res,
-          time: is_moment( res.create_date ),
-          head_img: is_url( res.head_img )
+          gender: res.gender,
+          nickname: res.nickname,
+          time: res.create_date,
+          head_img: res.head_img
         } )
       }
-    } catch ( error ) {
-      console.log( error )
-    }
+    } catch ( error ) { console.log( error ) }
   }
 
   componentDidMount () {
@@ -79,20 +78,17 @@ export default class User extends Component<any> {
   }
 
   render () {
-    const { user, time, head_img, id } = this.state
+    const { gender, nickname, time, head_img, id } = this.state
     return (
       <div className={ style.user }>
         <RtTitle title='个人中心' />
         <LazyLoad height={ 300 }>
           <Link className={ style.nick } to='/user/set'>
-            { id && ( <img src={ head_img } /> ) }
-            { !id && ( <img src='https://img.yzcdn.cn/vant/apple-1.jpg' /> ) }
+            <img src={ is_url( head_img ) } />
             <div className={ style.nick_content }>
               <div className={ style.nick_t }>
-                <span className={ style.t_name }>
-                  <b>{ user.nickname || '昵称' }</b>
-                </span>
-                { user.gender ?
+                <b className={ style.t_name }>{ nickname }</b>
+                { gender ?
                   <i className='iconfont iconxingbienan' style={ i_nan }></i> :
                   <i className='iconfont iconxingbienv' style={ i_nv }></i>
                 }
@@ -103,13 +99,13 @@ export default class User extends Component<any> {
           </Link>
         </LazyLoad>
         <div className={ style.content }>
-          { list.map( ( v, i ) => {
+          { list.map( v => {
             return (
               <TabList
                 title={ v.title }
                 content={ v.content }
                 pash={ v.pash }
-                key={ i }
+                key={ v.pash }
               />
             )
           } ) }

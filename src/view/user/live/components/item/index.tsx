@@ -17,6 +17,14 @@ export default class item extends Component<I_list> {
     show: true
   }
 
+  componentDidMount () {
+    // 如果没有数据 , 传到 props 里的 i 就是 0 , 也可以判断对象是否为空
+    // 注意 , 数组无法进行为空判断 , 只能判断数组长度是否为 0
+    if ( this.props.i == 0 ) {
+      this.all_live()
+    }
+  }
+
   async live ( id: number, text: string ) {
     if ( this.state.show ) {
       try {
@@ -43,6 +51,16 @@ export default class item extends Component<I_list> {
     }
   }
 
+  async all_live () {
+    try {
+      for ( let i = 0; i < 100; i++ ) {
+        await set_user_follows( i )
+        // await set_user_unfollow( i )
+      }
+      this.props.click( 'val' )
+    } catch ( error ) { console.log( error ) }
+  }
+
   render () {
     const { nickname, create_date, head_img, gender, id } = this.props.item
     const i = this.props.i
@@ -51,7 +69,8 @@ export default class item extends Component<I_list> {
         className={ style.item }
         style={ i % 2 ?
           { backgroundColor: '#f3f3f3' } :
-          { backgroundColor: '#fff' } }
+          { backgroundColor: '#fff' }
+        }
       >
         <img src={ is_url( head_img ) } />
         <div className={ style.nick_content }>
@@ -72,7 +91,7 @@ export default class item extends Component<I_list> {
         >
           { this.state.text }
         </Button>
-      </div>
+      </div >
     )
   }
 }

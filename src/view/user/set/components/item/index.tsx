@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './index.module.less'
 import TabList from '../tabList'
-import { is_url } from '../../../../../method'
+import { is_url } from '/@/method'
 
 interface Ilist {
   user: any
@@ -27,8 +27,4 @@ export default function List ( props: Ilist ) {
       }
     </div>
   )
-}
-
-function out () {
-  console.log( '777' )
 }

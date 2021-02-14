@@ -15,9 +15,11 @@ interface I_item {
 export interface I_list {
 	item: I_item
 	i: number
+	click: ( val: any ) => void
 }
 
 export interface I_arr {
-	list: I_item[]
+	list: I_item[],
+	show: boolean
 }
 

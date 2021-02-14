@@ -7,7 +7,7 @@ import Item from '../item'
 import { set_comments } from '/@/api/user/follow'
 import { is_res } from '/@/method'
 
-import { I_arr } from '/@/types'
+import { ListView } from 'antd-mobile'
 
 export default class List extends Component {
   state = {

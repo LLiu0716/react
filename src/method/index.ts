@@ -44,8 +44,8 @@ export function is_url ( url: string ) {
       return url
     } else {
       // return url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
-      return import.meta.env.VITE_APP_TITLE + url
-      // return process.env.NODE_ENV_URL + url
+      // return import.meta.env.VITE_APP_TITLE + url
+      return process.env.NODE_ENV_URL + url
     }
   } else return url = 'https://img.yzcdn.cn/vant/apple-2.jpg'
 }

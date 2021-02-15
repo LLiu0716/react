@@ -33,14 +33,14 @@ export default function flexible ( window: any, document: any ) {
 	}
 	if ( process.env.NODE_ENV === 'production' ) {
 		console.log = () => { }
-		// process.env.NODE_ENV_URL = 'http://127.0.0.1:3000'
+		process.env.NODE_ENV_URL = 'http://127.0.0.1:3000'
 	}
-	// if ( process.env.NODE_ENV === 'development' ) {
-	// 	process.env.NODE_ENV_URL = 'http://127.0.0.1:3000'
-	// }
-	// if ( process.env.NODE_ENV === 'staging' ) {
-	// 	process.env.NODE_ENV_URL = 'http://127.0.0.1:3000'
-	// }
+	if ( process.env.NODE_ENV === 'development' ) {
+		process.env.NODE_ENV_URL = 'http://127.0.0.1:3000'
+	}
+	if ( process.env.NODE_ENV === 'staging' ) {
+		process.env.NODE_ENV_URL = 'http://127.0.0.1:3000'
+	}
 }
 
 flexible( window, document )

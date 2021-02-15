@@ -9,7 +9,7 @@ import App from './App'
 // import { ReactRouter } from './router'
 
 console.log( "基础信息", process.env )
-console.log( import.meta.env )
+// console.log( import.meta.env )
 
 ReactDOM.render(
   <React.StrictMode>

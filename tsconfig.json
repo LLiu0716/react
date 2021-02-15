@@ -4,6 +4,7 @@
 		"paths": {
 			"/@/*": ["./src/*"]
 		},
+		"baseUrl": ".",
 		"lib": ["DOM", "DOM.Iterable", "ESNext"],
 		"types": [],
 		"allowJs": false,

@@ -23,7 +23,6 @@ export default class List extends Component {
       pageIndex: 1
     },
     list: [],
-    new_list: [],
     show: false
   }
 
@@ -40,15 +39,14 @@ export default class List extends Component {
         } )
         Toast.info( '没有数据了' )
       }
-      let new_list = this.state.new_list.concat( res )
+      let list = this.state.list.concat( res )
       this.setState( {
         isLoading: false,
         refreshing: false,
-        new_list,
-        dataSource: this.state.dataSource.cloneWithRows( new_list ),
+        list,
+        dataSource: this.state.dataSource.cloneWithRows( list ),
         show: true
       } )
-      console.log( 'dataSource', this.state.dataSource )
     } catch ( error ) { console.log( error ) }
   }
 
@@ -72,12 +70,12 @@ export default class List extends Component {
   }
 
   render () {
-    const { new_list, show } = this.state
+    const { list, show } = this.state
     let i = 0
-    const row: any = ( rowData: any, sectionID: any, rowID: any ) => {
+    const row = ( rowData: any, sectionID: any, rowID: any ) => {
       return (
         <Item
-          key={ rowID }
+          key={ sectionID }
           item={ rowData }
           i={ i++ }
         />
@@ -89,7 +87,7 @@ export default class List extends Component {
           // 获取数据才渲染组件
           show ? (
             // 获取数据后是否有需要的数据 ?
-            new_list.length ? (
+            list.length ? (
               <ListView
                 // ref={ el => this.lv = el }
                 dataSource={ this.state.dataSource }
@@ -102,9 +100,9 @@ export default class List extends Component {
                 renderRow={ row }
                 // renderSeparator={ separator }
                 className="am-list"
-                pageSize={ 4 }
+                pageSize={ 5 }
                 useBodyScroll
-                onScroll={ () => { console.log( 'scroll' ); } }
+                onScroll={ () => console.log( 'scroll' ) }
                 scrollRenderAheadDistance={ 500 }
                 onEndReached={ this.onEndReached }
                 onEndReachedThreshold={ 10 }
